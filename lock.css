@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #a8d0e6;
+}
+
+.lock-container {
+  background: navy; /* dark blue container */
+  width: 300px;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.instruction, .code-display, .forgot {
+  color: white; /* contrast text */
+}
+
+.instruction {
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.code-display {
+  font-size: 28px;
+  letter-spacing: 10px;
+  margin-bottom: 20px;
+  min-height: 32px;
+  font-weight: bold;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.keypad button {
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: #c2e0ff;
+  color: #001f4d;
+  cursor: pointer;
+}
+
+.keypad button:hover {
+  background: #90caff;
+}
+
+.forgot {
+  margin-top: 15px;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+}
+
