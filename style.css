@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f0f7ff;
+}
+
+/* TOP NAV */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: #001f4d;
+  color: white;
+}
+
+.greeting {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.nav-buttons button, .dropbtn {
+  margin-left: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background: #c2e0ff;
+  color: #001f4d;
+  cursor: pointer;
+}
+
+.nav-buttons button:hover, .dropbtn:hover {
+  background: #90caff;
+}
+
+/* DROPDOWN */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: white;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #001f4d;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* INFO BOXES */
+.info-boxes {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.box {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1;
+  margin: 0 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  font-weight: bold;
+}
+
+/* PIE CHART */
+.chart-section {
+  width: 50%;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+/* Default light mode */
+body.light-mode {
+  background: #f2f6ff;
+  color: #000;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background: #1c1c1c;
+  color: #fff;
+}
+
+/* Example untuk form & boxes */
+body.dark-mode .form-container,
+body.dark-mode .info-boxes .box,
+body.dark-mode .top-nav {
+  background: #333;
+  color: #fff;
+}

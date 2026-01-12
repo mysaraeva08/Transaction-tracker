@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tambah Transaksi</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    /* Navigation */
+    .top-nav {
+      display: flex;
+      justify-content: flex-end; 
+      background: #191970;
+      padding: 10px;
+      position: sticky;
+      top: 0;
+    }
+
+    .top-nav button {
+      background: #87ceeb;
+      border-radius: 10px;
+      padding: 8px 12px;
+      margin-left: 5px;
+      cursor: pointer;
+      color: navy;
+    }
+
+    /* Page Title */
+    .page-title {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    /* Form container kotak */
+    .form-container {
+      max-width: 400px;
+      margin: 30px auto;
+      background: #1e90ff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background: navy;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* DARK/LIGHT MODE */
+    body.light-mode {
+      background: #f2f6ff;
+      color: #000;
+    }
+    body.dark-mode {
+      background: #1c1c1c;
+      color: #fff;
+    }
+    body.dark-mode .top-nav,
+    body.dark-mode .form-container {
+      background: #333;
+      color: #fff;
+    }
+    body.dark-mode input, body.dark-mode select {
+      background: #555;
+      color: #fff;
+      border: 1px solid #777;
+    }
+    body.dark-mode button[type="submit"] {
+      background: #111;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <button onclick="window.location.href='index.html'">Home</button>
+    <button>Add</button>
+    <button id="toggleMode">🌙 / ☀️</button>
+  </nav>
+
+  <!-- Page Title -->
+  <h1 class="page-title">Tambah Transaksi</h1>
+
+  <!-- Form dalam kotak -->
+  <div class="form-container">
+    <form id="transactionForm">
+
+      <div class="form-group">
+        <label>Jenis Transaksi</label>
+        <select id="type">
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Kategori</label>
+        <input type="text" id="category" placeholder="Contoh: Makan">
+      </div>
+
+      <div class="form-group">
+        <label>Amount (RM)</label>
+        <input type="number" id="amount" placeholder="0.00">
+      </div>
+
+      <button type="submit">Simpan</button>
+
+    </form>
+  </div>
+
+<script>
+  // Dark/Light Mode Toggle
+  const toggleBtn = document.getElementById("toggleMode");
+
+  // Load last preference
+  if(localStorage.getItem("mode") === "dark"){
+    document.body.classList.add("dark-mode");
+  } else {
+    document.body.classList.add("light-mode");
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    document.body.classList.toggle("light-mode");
+    const mode = document.body.classList.contains("dark-mode") ? "dark" : "light";
+    localStorage.setItem("mode", mode);
+  });
+
+  const form = document.getElementById("transactionForm");
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const type = document.getElementById("type").value;
+    const category = document.getElementById("category").value.trim();
+    const amount = parseFloat(document.getElementById("amount").value);
+
+    if(!category || isNaN(amount) || amount <= 0){
+      alert("Sila isi kategori dan amount dengan betul!");
+      return;
+    }
+
+    let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+    transactions.push({ type, category, amount });
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+
+    alert("Data berjaya disimpan!");
+    form.reset();
+  });
+</script>
+
+</body>
+</html>

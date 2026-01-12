@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f6ff;
+  margin: 0;
+}
+
+.navbar {
+  background: navy;
+  padding: 10px;
+}
+
+.navbar button {
+  background: white;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.page-title {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.form-container {
+  max-width: 400px;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background: navy;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
