@@ -33,5 +33,6 @@ form.addEventListener("submit", function(e){
   form.reset();
 
   // Popup 
-  alert("Data berjaya disimpan!);
+  alert("Data berjaya disimpan!");
 });
+
