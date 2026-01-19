@@ -83,7 +83,7 @@ body {
 
 /* PIE CHART */
 .chart-section {
-  width: 50%;
+  width: 30%;
   margin: 30px auto;
   background: white;
   padding: 20px;
@@ -109,3 +109,4 @@ body.dark-mode .top-nav {
   background: #333;
   color: #fff;
 }
+
